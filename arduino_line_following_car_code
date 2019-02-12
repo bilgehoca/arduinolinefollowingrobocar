@@ -1,0 +1,39 @@
+int leftdc=6;  //Connect Left DC Motor to pin 6
+int rightdc=5;  //Connect Right DC Motor to pin 5
+int leftsens=13;  //Connect Left Sensor to pin 13
+int rightsens=12;  //Connect Right Sensor to pin 12
+int Left=0;
+int Right=0;
+
+
+void setup()
+{
+
+  pinMode(leftdc,OUTPUT);
+  pinMode(rightdc,OUTPUT);
+
+  pinMode(leftsens,INPUT);
+  pinMode(rightsens,INPUT);
+
+  digitalWrite(Left,HIGH);
+  digitalWrite(Right,HIGH);
+   
+}
+
+void loop() 
+{
+Left=digitalRead(leftsens); 
+Right=digitalRead(rightsens);
+if(Left==LOW){
+  digitalWrite(leftdc,HIGH);
+  digitalWrite(rightdc,LOW);
+}
+else if(Right==LOW){
+  digitalWrite(leftdc,LOW);
+  digitalWrite(rightdc,HIGH);
+}
+
+digitalWrite(leftdc,HIGH);
+digitalWrite(rightdc,HIGH);
+
+}
